@@ -13,3 +13,16 @@ k – угловой коэффициент (действительное чис
 X1_VAL = 2, Y1_VAL = 3, X2_VAL = 4, Y2_VAL = 5
 Уравнение прямой, проходящей через эти точки: y = 1.0x + 1.0
 """
+
+try:
+    X1_VAL = float(input("Введите X1: "))
+    Y1_VAL = float(input("Введите Y1: "))
+    X2_VAL = float(input("Введите X2: "))
+    Y2_VAL = float(input("Введите Y2: "))
+
+    K_VAL = (Y2_VAL - Y1_VAL) / (X2_VAL - X1_VAL)
+    B_VAL = Y1_VAL - (Y2_VAL - Y1_VAL) / (X2_VAL - X1_VAL) * X1_VAL
+    print(f'Уравнение прямой, проходящей через эти точки: y = {K_VAL}x + {B_VAL}')
+
+except ValueError:
+    print("Значение координаты не является числом")
