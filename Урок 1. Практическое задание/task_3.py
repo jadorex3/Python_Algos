@@ -20,9 +20,12 @@ try:
     X2_VAL = float(input("Введите X2: "))
     Y2_VAL = float(input("Введите Y2: "))
 
-    K_VAL = (Y2_VAL - Y1_VAL) / (X2_VAL - X1_VAL)
-    B_VAL = Y1_VAL - (Y2_VAL - Y1_VAL) / (X2_VAL - X1_VAL) * X1_VAL
-    print(f'Уравнение прямой, проходящей через эти точки: y = {K_VAL}x + {B_VAL}')
+    try:
+        K_VAL = (Y2_VAL - Y1_VAL) / (X2_VAL - X1_VAL)
+        B_VAL = Y1_VAL - (Y2_VAL - Y1_VAL) / (X2_VAL - X1_VAL) * X1_VAL
+        print(f"Уравнение прямой, проходящей через эти точки: y = {K_VAL}x + {B_VAL}")
+    except ZeroDivisionError:
+        print("Деление на ноль, проверьте корректность координат")
 
 except ValueError:
     print("Значение координаты не является числом")
