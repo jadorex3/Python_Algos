@@ -17,10 +17,10 @@
 
 try:
     NUMBER = int(input("Введите трехзначное целое число: "))
-    if NUMBER // 1000 and NUMBER:     # проверка трехзначности
+    if 1000 > NUMBER > 99:
+        print(f"Сумма = {(NUMBER // 100) + ((NUMBER // 10) % 10) + (NUMBER % 10)}")
+        print(f"Произведение = {(NUMBER // 100) * ((NUMBER // 10) % 10) * (NUMBER % 10)}")
+    else:
         raise ValueError
-
-    print(f"Сумма = {(NUMBER // 100) + ((NUMBER // 10) % 10) + (NUMBER % 10)}")
-    print(f"Произведение = {(NUMBER // 100) * ((NUMBER // 10) % 10) * (NUMBER % 10)}")
 except ValueError:
     print("Введенное значение не является трехзначным целым числом")
