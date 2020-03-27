@@ -16,3 +16,25 @@
 Он просто позволяет протестировать условие в одной строке,
 заменяя многострочное if-else, делая код компактным.
 """
+
+
+def func_1(year):
+    """1. Обычное ветвление"""
+    if not year % 4 and year % 100 or not year % 400:
+        print('Високосный')
+    else:
+        print('Невисокосный')
+
+
+def func_2(year):
+    """2. Тернарный оператор"""
+    print('Високосный' if not year % 400 or not year % 4 and year % 100 else 'Невисокосный')
+
+
+try:
+    YEAR = int(input('Введите год: '))
+
+    func_1(YEAR)
+    func_2(YEAR)
+except ValueError:
+    print('Введенное значение не является целым числом')
