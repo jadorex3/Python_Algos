@@ -33,3 +33,36 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
+
+
+def calc():
+    """Калькулятор для операций над двумя числами через рекурсию"""
+    try:
+        a_val = float(input('Введите первое число: '))
+        b_val = float(input('Введите второе число: '))
+        oper = input('Введите операцию (+, -, *, / или 0 для выхода): ')
+
+    except ValueError:
+        print("Введенное значение не является числом")
+
+    if oper == '0':
+        return None
+    elif oper == '+':
+        print(f'Результат {a_val} {oper} {b_val} = {a_val + b_val}')
+        return calc()
+    elif oper == '-':
+        print(f'Результат {a_val} {oper} {b_val} = {a_val - b_val}')
+        return calc()
+    elif oper == '*':
+        print(f'Результат {a_val} {oper} {b_val} = {a_val * b_val}')
+        return calc()
+    elif oper == '/':
+        print('Невозможно деление на ноль' if b_val == 0 else
+              f'Результат {a_val} {oper} {b_val} = {a_val / b_val}')
+        return calc()
+    else:
+        print('Неверная операция. Повторите ввод')
+        return calc()
+
+
+calc()

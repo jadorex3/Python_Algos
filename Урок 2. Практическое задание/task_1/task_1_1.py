@@ -32,3 +32,26 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ ЦИКЛ
 """
+
+while True:
+    try:
+        A_VAL = float(input('Введите первое число: '))
+        B_VAL = float(input('Введите второе число: '))
+        OPER = input('Введите операцию (+, -, *, / или 0 для выхода): ')
+
+    except ValueError:
+        print("Введенное значение не является числом")
+
+    if OPER == '0':
+        break
+    elif OPER == '+':
+        print(f'Результат {A_VAL} {OPER} {B_VAL} = {A_VAL + B_VAL}')
+    elif OPER == '-':
+        print(f'Результат {A_VAL} {OPER} {B_VAL} = {A_VAL - B_VAL}')
+    elif OPER == '*':
+        print(f'Результат {A_VAL} {OPER} {B_VAL} = {A_VAL * B_VAL}')
+    elif OPER == '/':
+        print('Невозможно деление на ноль' if B_VAL == 0 else
+              f'Результат {A_VAL} {OPER} {B_VAL} = {A_VAL / B_VAL}')
+    else:
+        print('Неверная операция. Повторите ввод')
