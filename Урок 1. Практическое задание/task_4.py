@@ -14,3 +14,30 @@
 Функцию random() использовать можно
 Опирайтесь на пример к уроку
 """
+
+
+from random import random
+
+try:
+    print("Генерация случайного целого числа")
+    LEFT = int(input("Минимальная граница: "))
+    RIGHT = int(input("Максимальная граница: "))
+    NUMB = int(random() * (RIGHT - LEFT + 1)) + LEFT
+    print(NUMB)
+
+    print("Генерация случайного вещественного числа")
+    LEFT = float(input("Минимальная граница: "))
+    RIGHT = float(input("Максимальная граница: "))
+    NUMB = random() * (RIGHT - LEFT) + LEFT
+    print(round(NUMB, 3))
+
+    print("Генерация случайного символа")
+    LEFT = ord(input("Минимальная граница: "))
+    RIGHT = ord(input("Максимальная граница: "))
+    NUMB = int(random() * (RIGHT - LEFT + 1)) + LEFT
+    print(chr(NUMB))
+
+except ValueError:
+    print("Введенное значение не является числом")
+except TypeError:
+    print("Введенное значение некорректно")
