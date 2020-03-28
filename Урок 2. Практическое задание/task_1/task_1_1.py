@@ -34,24 +34,30 @@
 """
 
 while True:
-    try:
-        A_VAL = float(input('Введите первое число: '))
-        B_VAL = float(input('Введите второе число: '))
-        OPER = input('Введите операцию (+, -, *, / или 0 для выхода): ')
+    OPER_TYPE = input('Введите операцию (+, -, *, / или 0 для выхода): ')
 
-    except ValueError:
-        print("Введенное значение не является числом")
-
-    if OPER == '0':
+    if OPER_TYPE == '0':
         break
-    elif OPER == '+':
-        print(f'Результат {A_VAL} {OPER} {B_VAL} = {A_VAL + B_VAL}')
-    elif OPER == '-':
-        print(f'Результат {A_VAL} {OPER} {B_VAL} = {A_VAL - B_VAL}')
-    elif OPER == '*':
-        print(f'Результат {A_VAL} {OPER} {B_VAL} = {A_VAL * B_VAL}')
-    elif OPER == '/':
-        print('Невозможно деление на ноль' if B_VAL == 0 else
-              f'Результат {A_VAL} {OPER} {B_VAL} = {A_VAL / B_VAL}')
+    if OPER_TYPE in '+-*/':
+        try:
+            NUM_1 = float(input('Введите первое число: '))
+            NUM_2 = float(input('Введите второе число: '))
+
+            if OPER_TYPE == '+':
+                RES = NUM_1 + NUM_2
+            elif OPER_TYPE == '-':
+                RES = NUM_1 - NUM_2
+            elif OPER_TYPE == '*':
+                RES = NUM_1 * NUM_2
+            elif OPER_TYPE == '/':
+                if NUM_2 == 0:
+                    RES = NUM_1 / NUM_2
+                else:
+                    print('Невозможно деление на ноль')
+                    continue
+
+            print(f'Результат {NUM_1} {OPER_TYPE} {NUM_2} = {RES}')
+        except ValueError:
+            print("Введенное значение не является числом")
     else:
         print('Неверная операция. Повторите ввод')

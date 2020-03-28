@@ -37,29 +37,39 @@
 
 def calc():
     """Калькулятор для операций над двумя числами через рекурсию"""
-    try:
-        a_val = float(input('Введите первое число: '))
-        b_val = float(input('Введите второе число: '))
-        oper = input('Введите операцию (+, -, *, / или 0 для выхода): ')
+    oper_type = input('Введите операцию (+, -, *, / или 0 для выхода): ')
 
-    except ValueError:
-        print("Введенное значение не является числом")
+    if oper_type == '0':
+        return 'Выход'
 
-    if oper == '0':
-        return None
-    elif oper == '+':
-        print(f'Результат {a_val} {oper} {b_val} = {a_val + b_val}')
-        return calc()
-    elif oper == '-':
-        print(f'Результат {a_val} {oper} {b_val} = {a_val - b_val}')
-        return calc()
-    elif oper == '*':
-        print(f'Результат {a_val} {oper} {b_val} = {a_val * b_val}')
-        return calc()
-    elif oper == '/':
-        print('Невозможно деление на ноль' if b_val == 0 else
-              f'Результат {a_val} {oper} {b_val} = {a_val / b_val}')
-        return calc()
+    if oper_type in '+-*/':
+        try:
+            num_1 = float(input('Введите первое число: '))
+            num_2 = float(input('Введите второе число: '))
+
+            if oper_type == '+':
+                res = num_1 + num_2
+                print(f'Результат {num_1} {oper_type} {num_2} = {res}')
+                return calc()
+            elif oper_type == '-':
+                res = num_1 - num_2
+                print(f'Результат {num_1} {oper_type} {num_2} = {res}')
+                return calc()
+            elif oper_type == '*':
+                res = num_1 * num_2
+                print(f'Результат {num_1} {oper_type} {num_2} = {res}')
+                return calc()
+            elif oper_type == '/':
+                if num_2 == 0:
+                    res = num_1 / num_2
+                    print(f'Результат {num_1} {oper_type} {num_2} = {res}')
+                else:
+                    print('Невозможно деление на ноль')
+                return calc()
+
+        except ValueError:
+            print("Введенное значение не является числом")
+            return calc()
     else:
         print('Неверная операция. Повторите ввод')
         return calc()
