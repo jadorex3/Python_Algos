@@ -20,7 +20,7 @@
 def recur_method(num, evens=0, odds=0):
     """Рекурсия"""
 
-    if num == 0:
+    if not num:
         return evens, odds
     else:
         current_num = num % 10

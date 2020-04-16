@@ -16,10 +16,11 @@
 
 def cycle_method(num):
     """Цикл"""
+
     evens = 0
     odds = 0
 
-    while num != 0:
+    while num:
         current_num = num % 10
         num = num // 10
         if current_num % 2 == 0:
