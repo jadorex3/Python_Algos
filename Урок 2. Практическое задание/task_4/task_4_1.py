@@ -8,3 +8,23 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ ЦИКЛ
 """
+
+
+def cycle_method(count):
+    """Цикл"""
+    num = 1.0
+    summ = 1
+    while count - 1:
+        num = num / (-2)
+        summ += num
+        count -= 1
+    return summ
+
+
+try:
+    NUM = int(input('Введите количество элементов: '))
+    if NUM <= 0:
+        raise ValueError
+    print(f'Количество элементов - {NUM}, их сумма - {cycle_method(NUM)}')
+except ValueError:
+    print("Введенное значение не является натуральным числом")
