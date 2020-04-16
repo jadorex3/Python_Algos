@@ -12,3 +12,19 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ ЦИКЛ
 """
+
+
+def cycle_method(num):
+    """Цикл"""
+    res = 0
+    while num:
+        res = (res * 10) + (num % 10)
+        num = num // 10
+    return res
+
+
+try:
+    NUM = abs(int(input('Введите число: ')))
+    print(f'Перевернутое число: {cycle_method(NUM)}')
+except ValueError:
+    print("Введенное значение не является числом")

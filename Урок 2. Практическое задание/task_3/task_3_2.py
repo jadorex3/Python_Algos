@@ -14,3 +14,20 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
+
+
+def recur_method(num, res=0):
+    """Рекурсия"""
+    if not num:
+        return res
+    else:
+        res = (res * 10) + (num % 10)
+        num = num // 10
+        return recur_method(num, res)
+
+
+try:
+    NUM = abs(int(input('Введите число: ')))
+    print(f'Перевернутое число: {recur_method(NUM)}')
+except ValueError:
+    print("Введенное значение не является числом")
