@@ -15,3 +15,31 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
+
+
+def recur_method(num, evens=0, odds=0):
+    """Рекурсия"""
+
+    if num == 0:
+        return evens, odds
+    else:
+        current_num = num % 10
+        num = num // 10
+        if current_num % 2 == 0:
+            evens += 1
+            return recur_method(num, evens, odds)
+        else:
+            odds += 1
+            return recur_method(num, evens, odds)
+
+
+try:
+    NUM = int(input('Введите натуральное число: '))
+    if NUM <= 0:
+        raise ValueError
+
+    print(f'В числе {NUM} всего {recur_method(NUM)[0] + recur_method(NUM)[1]} цифр, '
+          f'из которых {recur_method(NUM)[0]} чётных и {recur_method(NUM)[1]} нечётных')
+
+except ValueError:
+    print("Введенное значение не является натуральным числом")

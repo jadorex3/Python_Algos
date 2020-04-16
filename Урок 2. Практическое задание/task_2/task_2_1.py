@@ -12,3 +12,30 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ ЦИКЛ
 """
+
+
+def cycle_method(num):
+    """Цикл"""
+    evens = 0
+    odds = 0
+
+    while num != 0:
+        current_num = num % 10
+        num = num // 10
+        if current_num % 2 == 0:
+            evens += 1
+        else:
+            odds += 1
+    return evens, odds
+
+
+try:
+    NUM = int(input('Введите натуральное число: '))
+    if NUM <= 0:
+        raise ValueError
+
+    print(f'В числе {NUM} всего {cycle_method(NUM)[0] + cycle_method(NUM)[1]} цифр, '
+          f'из которых {cycle_method(NUM)[0]} чётных и {cycle_method(NUM)[1]} нечётных')
+
+except ValueError:
+    print("Введенное значение не является натуральным числом")
