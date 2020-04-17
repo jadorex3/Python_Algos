@@ -17,3 +17,21 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
+
+
+FIRST_ASCII_CODE = 32
+LAST_ASCII_CODE = 127
+STEP = 10
+
+
+def recur_method(from_char, to_char, output_str=''):
+    """Рекурсия"""
+    for char in range(from_char, to_char):
+        if char <= LAST_ASCII_CODE:
+            output_str += f'{char} - {chr(char)} '
+    print(output_str)
+    if to_char < LAST_ASCII_CODE:
+        return recur_method(from_char + STEP, to_char + STEP)
+
+
+recur_method(FIRST_ASCII_CODE, FIRST_ASCII_CODE + STEP)

@@ -17,3 +17,20 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ ЦИКЛ
 """
+
+
+FIRST_ASCII_CODE = 32
+LAST_ASCII_CODE = 127
+STEP = 10
+
+
+def cycle_method(from_char, to_char, output_str=''):
+    """Цикл"""
+    for char in range(from_char, to_char):
+        if char <= LAST_ASCII_CODE:
+            output_str += f'{char} - {chr(char)} '
+    return output_str
+
+
+for i in range(FIRST_ASCII_CODE, LAST_ASCII_CODE + 1, STEP):
+    print(cycle_method(i, i + STEP))
